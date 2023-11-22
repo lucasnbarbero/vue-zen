@@ -1,3 +1,5 @@
+<!-- ZenButton.vue -->
+
 <template>
   <component
     :is="is"
@@ -14,6 +16,24 @@
 </template>
 
 <script lang="ts" setup>
+/**
+ * @typedef {Object} ZenButtonProps
+ * @property {string} [label] - Texto del botón.
+ * @property {string} [color] - Color del botón.
+ * @property {string} [target] - Atributo target para enlaces.
+ * @property {string | object} [to] - Ruta para enlaces de Vue Router.
+ * @property {string} [type] - Tipo del botón (si es un botón).
+ * @property {string} [href] - URL para enlaces `<a>`.
+ * @property {string} [as] - Tipo de elemento si se especifica un componente externo (ej. 'router-link').
+ * @property {boolean} [roundedFull] - Indica si el botón debe tener bordes redondeados completos.
+ * @property {boolean} [disabled] - Indica si el botón está deshabilitado.
+ * @property {boolean} [filled] - Indica si el botón debe estar lleno de color.
+ * @property {boolean} [outlined] - Indica si el botón debe tener un estilo de solamente borde.
+ * @property {boolean} [text] - Indica si el botón debe tener un estilo de texto.
+ * @property {boolean} [elevated] - Indica si el botón debe tener un estilo de elevación.
+ */
+
+import getButtonColor from '@/utils/getButtonColor';
 import { computed } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -57,7 +77,7 @@ const buttonStyle = computed(() => {
 });
 
 const componentClass = computed((): string[] => {
-  const base: string[] = [
+  var base: string[] = [
     'inline-flex',
     'items-center',
     'justify-center',
@@ -73,110 +93,11 @@ const componentClass = computed((): string[] => {
   if (props.disabled) {
     base.push('bg-neutral-200 text-neutral-400');
   } else {
-    base.push(bgColor[buttonStyle.value][props.color]);
-    base.push(borderColor[buttonStyle.value][props.color]);
-    base.push(textColor[buttonStyle.value][props.color]);
-    base.push(hoverColor[buttonStyle.value][props.color]);
-    base.push(focusColor[buttonStyle.value][props.color]);
+    base = [...base, ...getButtonColor(props.color, buttonStyle.value)];
   }
 
   return base;
 });
-
-const bgColor: Record<string, Record<string, string>> = {
-  filled: {
-    primary: 'bg-primary-400',
-    secondary: 'bg-secondary-400',
-  },
-  outlined: {
-    primary: 'bg-transparent',
-    secondary: 'bg-transparent',
-  },
-  text: {
-    primary: 'bg-transparent',
-    secondary: 'bg-transparent',
-  },
-  elevated: {
-    primary: 'bg-transparent shadow-lg',
-    secondary: 'bg-transparent shadow-lg',
-  },
-};
-
-const borderColor: Record<string, Record<string, string>> = {
-  filled: {
-    primary: '',
-    secondary: '',
-  },
-  outlined: {
-    primary: 'border border-2 border-primary-300',
-    secondary: 'border border-2 border-secondary-300',
-  },
-  text: {
-    primary: '',
-    secondary: '',
-  },
-  elevated: {
-    primary: '',
-    secondary: '',
-  },
-};
-
-const textColor: Record<string, Record<string, string>> = {
-  filled: {
-    primary: 'text-white',
-    secondary: 'text-white',
-  },
-  outlined: {
-    primary: 'text-primary-400',
-    secondary: 'text-secondary-400',
-  },
-  text: {
-    primary: 'text-primary-400',
-    secondary: 'text-secondary-400',
-  },
-  elevated: {
-    primary: 'text-primary-400',
-    secondary: 'text-secondary-400',
-  },
-};
-
-const hoverColor: Record<string, Record<string, string>> = {
-  filled: {
-    primary: 'hover:bg-primary-400/80',
-    secondary: 'hover:bg-secondary-400/80',
-  },
-  outlined: {
-    primary: 'hover:bg-primary-50',
-    secondary: 'hover:bg-secondary-50',
-  },
-  text: {
-    primary: 'hover:bg-primary-50',
-    secondary: 'hover:bg-secondary-50',
-  },
-  elevated: {
-    primary: 'hover:bg-primary-50',
-    secondary: 'hover:bg-secondary-50',
-  },
-};
-
-const focusColor: Record<string, Record<string, string>> = {
-  filled: {
-    primary: '',
-    secondary: '',
-  },
-  outlined: {
-    primary: '',
-    secondary: '',
-  },
-  text: {
-    primary: '',
-    secondary: '',
-  },
-  elevated: {
-    primary: '',
-    secondary: '',
-  },
-};
 
 const handleClick = () => emits('handleClick');
 </script>

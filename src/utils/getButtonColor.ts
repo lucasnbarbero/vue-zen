@@ -1,0 +1,198 @@
+const bgColor: Record<string, Record<string, string>> = {
+  filled: {
+    primary: 'bg-primary-400',
+    secondary: 'bg-secondary-400',
+    tertiary: 'bg-tertiary-400',
+    success: 'bg-success-400',
+    danger: 'bg-danger-400',
+    info: 'bg-info-400',
+    warning: 'bg-warning-400',
+    light: 'bg-light-400',
+    dark: 'bg-dark-400',
+  },
+  outlined: {
+    primary: 'bg-transparent',
+    secondary: 'bg-transparent',
+    tertiary: 'bg-transparent',
+    success: 'bg-transparent',
+    danger: 'bg-transparent',
+    info: 'bg-transparent',
+    warning: 'bg-transparent',
+    light: 'bg-transparent',
+    dark: 'bg-transparent',
+  },
+  text: {
+    primary: 'bg-transparent',
+    secondary: 'bg-transparent',
+    tertiary: 'bg-transparent',
+    success: 'bg-transparent',
+    danger: 'bg-transparent',
+    info: 'bg-transparent',
+    warning: 'bg-transparent',
+    light: 'bg-transparent',
+    dark: 'bg-transparent',
+  },
+  elevated: {
+    primary: 'bg-transparent shadow-lg',
+    secondary: 'bg-transparent shadow-lg',
+    tertiary: 'bg-transparent shadow-lg',
+    success: 'bg-transparent shadow-lg',
+    danger: 'bg-transparent shadow-lg',
+    info: 'bg-transparent shadow-lg',
+    warning: 'bg-transparent shadow-lg',
+    light: 'bg-transparent shadow-lg',
+    dark: 'bg-transparent shadow-lg',
+  },
+};
+
+const borderColor: Record<string, Record<string, string>> = {
+  filled: {
+    primary: '',
+    secondary: '',
+    tertiary: '',
+    success: '',
+    danger: '',
+    info: '',
+    warning: '',
+    light: '',
+    dark: '',
+  },
+  outlined: {
+    primary: 'border border-2 border-primary-300',
+    secondary: 'border border-2 border-secondary-300',
+    tertiary: 'border border-2 border-tertiary-300',
+    success: 'border border-2 border-success-300',
+    danger: 'border border-2 border-danger-300',
+    info: 'border border-2 border-info-300',
+    warning: 'border border-2 border-warning-300',
+    light: 'border border-2 border-light-500',
+    dark: 'border border-2 border-dark-300',
+  },
+  text: {
+    primary: '',
+    secondary: '',
+    tertiary: '',
+    success: '',
+    danger: '',
+    info: '',
+    warning: '',
+    light: '',
+    dark: '',
+  },
+  elevated: {
+    primary: '',
+    secondary: '',
+    tertiary: '',
+    success: '',
+    danger: '',
+    info: '',
+    warning: '',
+    light: '',
+    dark: '',
+  },
+};
+
+const textColor: Record<string, Record<string, string>> = {
+  filled: {
+    primary: 'text-white',
+    secondary: 'text-white',
+    tertiary: 'text-white',
+    success: 'text-white',
+    danger: 'text-white',
+    info: 'text-white',
+    warning: '',
+    light: '',
+    dark: 'text-white',
+  },
+  outlined: {
+    primary: 'text-primary-400',
+    secondary: 'text-secondary-400',
+    tertiary: 'text-tertiary-400',
+    success: 'text-success-400',
+    danger: 'text-danger-400',
+    info: 'text-info-400',
+    warning: 'text-warning-400',
+    light: 'text-dark-400',
+    dark: 'text-dark-400',
+  },
+  text: {
+    primary: 'text-primary-400',
+    secondary: 'text-secondary-400',
+    tertiary: 'text-tertiary-400',
+    success: 'text-success-400',
+    danger: 'text-danger-400',
+    info: 'text-info-400',
+    warning: 'text-warning-400',
+    light: 'text-light-900',
+    dark: 'text-dark-400',
+  },
+  elevated: {
+    primary: 'text-primary-400',
+    secondary: 'text-secondary-400',
+    tertiary: 'text-tertiary-400',
+    success: 'text-success-400',
+    danger: 'text-danger-400',
+    info: 'text-info-400',
+    warning: 'text-warning-400',
+    light: 'text-light-900',
+    dark: 'text-dark-400',
+  },
+};
+
+const hoverColor: Record<string, Record<string, string>> = {
+  filled: {
+    primary: 'hover:bg-primary-400/80',
+    secondary: 'hover:bg-secondary-400/80',
+    tertiary: 'hover:bg-tertiary-400/80',
+    success: 'hover:bg-success-400/80',
+    danger: 'hover:bg-danger-400/80',
+    info: 'hover:bg-info-400/80',
+    warning: 'hover:bg-warning-400/80',
+    light: 'hover:bg-light-500/80',
+    dark: 'hover:bg-dark-400/80',
+  },
+  outlined: {
+    primary: 'hover:bg-primary-50',
+    secondary: 'hover:bg-secondary-50',
+    tertiary: 'hover:bg-tertiary-50',
+    success: 'hover:bg-success-50',
+    danger: 'hover:bg-danger-50',
+    info: 'hover:bg-info-50',
+    warning: 'hover:bg-warning-50',
+    light: 'hover:bg-light-200',
+    dark: 'hover:bg-dark-50',
+  },
+  text: {
+    primary: 'hover:bg-primary-50',
+    secondary: 'hover:bg-secondary-50',
+    tertiary: 'hover:bg-tertiary-50',
+    success: 'hover:bg-success-50',
+    danger: 'hover:bg-danger-50',
+    info: 'hover:bg-info-50',
+    warning: 'hover:bg-warning-50',
+    light: 'hover:bg-light-200',
+    dark: 'hover:bg-dark-50',
+  },
+  elevated: {
+    primary: 'hover:bg-primary-50',
+    secondary: 'hover:bg-secondary-50',
+    tertiary: 'hover:bg-tertiary-50',
+    success: 'hover:bg-success-50',
+    danger: 'hover:bg-danger-50',
+    info: 'hover:bg-info-50',
+    warning: 'hover:bg-warning-50',
+    light: 'hover:bg-light-200',
+    dark: 'hover:bg-dark-50',
+  },
+};
+
+export default function (color: string, style: 'filled' | 'outlined' | 'text' | 'elevated'): string[] {
+  const colors: string[] = [];
+
+  colors.push(bgColor[style][color]);
+  colors.push(borderColor[style][color]);
+  colors.push(textColor[style][color]);
+  colors.push(hoverColor[style][color]);
+
+  return colors;
+}
